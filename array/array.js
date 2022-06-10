@@ -37,6 +37,6 @@ console.log(approved[2]);
  * The firts argument is the indice.
  * The second is the position where action starts.
  * The third  add news items */
- approved = ['Bia', 'Carlos', 'Ana'];
-approved.slice(1, 1, 'Element1', 'Element2');
+approved = ['Bia', 'Carlos', 'Ana'];
+approved.splice(1, 1, 'Element1', 'Element2');
 console.log(approved);
