@@ -1,3 +1,5 @@
+//Reduce has the ideia to agregate the values from a array. 
+
 const students = [
     { name: 'John', grade: 7.3, colleger: false },
     { name: 'Marie', grade: 9.2, colleger: true },

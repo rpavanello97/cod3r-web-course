@@ -64,8 +64,8 @@ restoDivisao(11,2)*/
 //um exercício simples para mostrar dinheiro sempre da forma correta. Desenvolva uma função JavaScript para
 //que ela receba um valor como 0.30000000000000004 e retorne R$0,30 (observe a vírgula e o ponto).
 
-//const moneyMask = value => `${value.toLocaleString('pt-BR',{ style: 'currency', currency: 'BRL' })}`;
-//console.log(moneyMask(0.30000000000000004));
+// const moneyMask = value => `${value.toLocaleString('pt-BR',{ style: 'currency', currency: 'BRL' })}`;
+// console.log(moneyMask(0.30000000000000004));
 
 
 ///////////////////////////////////////////////////////// EXERCICIO 6 ////////////////////////////////////////////
