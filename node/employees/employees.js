@@ -1,3 +1,6 @@
+
+//'npm i' will recreate node_modules folder from dependences filled in package.json
+
 const axios = require('axios');
 const url = 'http://files.cod3r.com.br/curso-js/funcionarios.json';
 
