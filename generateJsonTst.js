@@ -9,7 +9,8 @@ let obj = [
         codPublicacaoDOE: 1,
         numControlePublicacao: "",
         numPublicacao: "001/2022",
-        situacao: "Confirmar"
+        situacao: "Pendente",
+        indSituacao: 0,
     },
     {
         numPublicacao: "12312",
@@ -21,7 +22,8 @@ let obj = [
         codPublicacaoDOE: 2,
         numControlePublicacao: "",
         numPublicacao: "001/2022",
-        situacao: "Confirmar"
+        situacao: "Confirmada",
+        indSituacao: 1,
     }
 ];
 
@@ -32,6 +34,6 @@ let acordaosPendentesObj = [
     { DRR: '06', numNADP: '22.0003073-7', numAutoInfracao: '', numAcordao: '', nomeAutuado: 'DJALMA MENDES', cpfCnpj: '76.543.072/0001-80', numInscricaoEstadual: '10101407-02' },
 ]
 
-const json = JSON.stringify(acordaosPendentesObj);
+const json = JSON.stringify(obj);
 console.log(json);
 
