@@ -1,0 +1,144 @@
+<div wm-slider>
+    <!-- Image 1 -->
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="City wall" width="513" height="342"
+            title="City wall by Tarso Bessa">
+    </p>
+
+    <!-- Image 2 -->
+    <p>
+        <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" alt="Intro Cod3r" height="342">
+    </p>
+
+    <!-- Image 3 -->
+    <p class="circular">
+        <img src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="Rio de Janeiro" height="342">
+    </p>
+
+    <!-- Image 4 -->
+    <p class="text">
+        <img src="http://files.cod3r.com.br/curso-web/avatar.jpg" alt="Avatar" height="50" align="left">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum
+        sociis
+        natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec,
+        pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet
+        nec,
+        vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu
+        pede
+        mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend
+        tellus.
+        Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra
+        quis,
+        feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam
+        ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus,
+        tellus
+        eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc,
+        blandit
+        vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut
+        libero
+        venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla
+        mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus
+        nunc,
+    </p>
+
+    <!-- Image 5 -->
+    <p class="city"></p>
+
+    <!-- Image 6 -->
+    <p>
+        <picture>
+            <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png" media="(min-width: 600px)">
+            <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+        </picture>
+    </p>
+</div>
+
+
+<!-- Css -->
+<style>
+    p {
+        position: absolute;
+        display: none;
+    }
+
+    .circula {
+        width: 513px;
+        background-color: white;
+    }
+
+    .text {
+        width: 400px;
+    }
+
+    .text img {
+        margin: 10px;
+    }
+
+    .city {
+        width: 513px;
+        height: 342px;
+        background-image: url('http://files.cod3r.com.br/curso-web/imagem4.jpg');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 200%;
+    }
+</style>
+
+<script>
+    function move(el, begin, end, pace, callback) {
+        const newBegin = begin - pace;
+        if (newBegin >= end) {
+            el.style.left = newBegin + 'px';
+            setTimeout(() => move(el, newBegin, end, pace, callback), 7);
+        } else {
+            callback();
+        }
+    }
+
+    /** My solution
+     *      
+     function handleExecution(index, arrLength) {
+        debugger;
+        if (index < arrLength) {
+            arr[index].style.display = 'block';
+            move(arr[index], 1500, -620, 5, () => {
+                index++;
+                handleExecution(index, arrLength);
+            });
+        }
+    }
+
+    const arr = document.querySelectorAll('[wm-slider] > p');
+    handleExecution(0, arr.length);    
+    */
+
+    /**
+     * Solution from course
+     */
+
+    function slider() {
+        const elements = document.querySelectorAll('[wm-slider] > p');
+        const items = Array.from(elements);
+        showSlide(items, items[0]);
+    }
+
+    function showSlide(items, item) {
+        item.style.display = 'block';
+
+        const begin = innerWidth;
+        const end = -item.clientWidth;
+
+        item.style.left = `${begin}px`;
+
+        move(item, begin, end, 5, () => {
+            showSlide(items, getNext(items, item));
+        });
+    }
+
+    function getNext(items, item) {
+        const i = items.indexOf(item) + 1;
+        return i < items.length ? items[i] : items[0]
+    }
+
+    slider();
+</script>

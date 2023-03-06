@@ -1,0 +1,73 @@
+<video id="myVideo" width="800" height="450" controls controlsList="nodownload">
+    <source src="http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4">
+    Your browser does not support this video.
+</video>
+
+<div wm-progresso='myVideo' class="progress">
+    <div></div>
+</div>
+
+<div>
+    <button wm-play="myVideo">Play</button>
+    <button wm-pause="myVideo">Pause</button>
+</div>
+
+<!-- JavaScript -->
+<script>
+    // var video = document.getElementById("myVideo");
+    // var playButton = document.querySelector('[wm-play]');
+    // var pauseButton = document.querySelector('[wm-pause]');
+    // const progress = document.querySelector(".progress");
+    // const progressBar = document.querySelector(".progress > div");
+
+    // function handleProgress() {
+    //     const progressPercentage = (video.currentTime / video.duration) * 100;
+    //     progressBar.style.width = `${progressPercentage}%`;
+    // }   
+
+    // playButton.addEventListener('click', () => {
+    //     video.play();
+    // })
+    // pauseButton.addEventListener('click', () => {
+    //     video.pause();
+    // })
+    // video.addEventListener('timeupdate',handleProgress);
+
+    function configureVideo(id) {
+        debugger;
+        const video = document.getElementById(id);
+        video.oncontextmenu = () => false;
+
+        document.querySelector(`[wm-play=${id}]`).onclick = e => video.play();
+        document.querySelector(`[wm-pause=${id}]`).onclick = e => video.pause();
+
+        setInterval(() => {
+            const percent = (video.currentTime / video.duration) * 100
+            const divValue = document.querySelector(`[wm-progresso=${id}] > div`)
+            divValue.style.width = `${percent}%`;
+            divValue.innerHTML = `${percent.toFixed(1)}%`;
+        },500);
+    }
+
+    configureVideo('myVideo');
+
+</script>
+
+<!-- CSS -->
+<style>
+    .progress {
+        height: 20px;
+        width: 500px;
+        border: solid 1px #444;
+        margin: 2px;
+    }
+
+    .progress > div {
+        background-color: darkorchid;
+        color: #fff;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+        width: 0%;
+    }
+</style>
