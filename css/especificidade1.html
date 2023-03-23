@@ -3,14 +3,37 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Especificidade CSS</title>
+    <title>Specificity CSS</title>
     <style>
         /* https://developer.mozilla.org/pt-BR/docs/Web/CSS/Specificity */
+        /** 
+            Sequence of application
+            
+            1. Rule with !important.
+            2. Selectors more specific.
+            3. Last rule processed.
+        */
+
+        p {
+            background-color: #aaa;
+        }
+
+        .observation {
+            background-color: #5F5;
+            border: dashed;
+            padding: 200px;
+            font-size: 40px;
+        }
+
+        p.observation {
+            padding: 5px 60px;
+            background: linear-gradient(to right, red, yellow);
+        }
     </style>
 </head>
 
 <body>
-    <p class='observacao'>Olha essa observação!!!!</p>
+    <p class='observation'>Look this observation!!!!</p>
 </body>
 
 </html>

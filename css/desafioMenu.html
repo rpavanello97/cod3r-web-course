@@ -7,14 +7,135 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
-        /* ... */
+        * {
+            font-family: 'Oswald';
+            margin: 0px;
+            padding: 0px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            background-color: lightgray;
+        }
+
+        .header {
+            background-color: #212529;
+            display: flex;
+            align-items: center;
+            border-bottom: solid 5px #219ebc;
+            padding: 10px 20px 0px 20px;
+        }
+
+        .logo {
+            width: 300px;
+            height: 56.7px;
+            padding-bottom: 10px;
+        }
+
+        .logo img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+
+        .menu-toggle {
+            border: none;
+            background-color: #212529;
+            border-radius: 5px;
+            padding: 10px 20px;
+
+            display: none;
+        }
+
+        .menu-toggle:hover {
+            background-color: #353c42;
+        }
+
+        .menu-toggle i {
+            color: #edede9;
+        }
+
+        /** Menu */
+        .menu {
+            margin-left: 50px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        .menu ul li {
+            padding: 15px 15px;
+        }
+
+        .menu ul li:hover {
+            background-color: #219ebc;
+        }
+
+        .menu ul li:hover a {
+            color: #212529;
+        }
+
+        .menu ul li a,
+        .authentication a {
+            color: #edede9;
+            letter-spacing: 1px;
+        }
+
+        /** Aside */
+        .authentication {
+            position: fixed;
+            right: 20px;
+        }
+
+        .button {
+            background-color: #d90429;
+            padding: 10px;
+            border-radius: 20px;
+            margin-left: 5px;
+            box-shadow: 3.5px 3.5px #070707;
+        }
+
+        .button:active {
+            box-shadow: none;
+            transform: translateY(2px);
+        }
+
+        .button:hover {
+            background-color: #9c051e;
+        }
+
+        @media (max-width: 870px) {
+            .authentication {
+                display: none;
+            }
+        }
+
+        @media (max-width: 740px) {
+            .menu {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+                align-items: center;
+                position: fixed;
+
+                margin-right: 10px;
+                right: 0px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <header class="cabecalho">
+    <header class="header">
         <div class="logo">
-            <a href="#inicio">
+            <a href="#home">
                 <img src="http://files.cod3r.com.br/curso-web/logo.png" alt="Logo" />
             </a>
         </div>
@@ -24,27 +145,55 @@
         <nav class="menu">
             <ul>
                 <li>
-                    <a href="#inicio">Início</a>
+                    <a href="#home">Home</a>
                 </li>
                 <li>
-                    <a href="#cursos">Cursos</a>
+                    <a href="#courses">Courses</a>
                 </li>
                 <li>
-                    <a href="#sobre">Sobre</a>
+                    <a href="#about">About us</a>
                 </li>
                 <li>
-                    <a href="#contato">Contato</a>
+                    <a href="#contact">Contact</a>
                 </li>
             </ul>
         </nav>
-        <aside class="autenticacao">
+        <aside class="authentication">
             <a href="#login">Login</a>
-            <a href="#registar" class="botao destaque">Registrar</a>
+            <a href="#register" class="button highlight">Registrer</a>
         </aside>
     </header>
 
     <script>
-        // ...
+        const _HOME = '#home';
+        const applyBackground = (str) => {
+            let i = str.indexOf('#');
+            let id = str.slice(i);
+            let el = document.querySelectorAll("[href='" + id + "']");
+            if (id === _HOME) {
+                el[1].parentElement.style.backgroundColor = '#219ebc';
+            } else {
+                el[0].parentElement.style.backgroundColor = '#219ebc';
+            }
+        }
+
+        const removeBackground = (str) => {
+            let i = str.indexOf('#');
+            let id = str.slice(i);
+            let el = document.querySelectorAll("[href='" + id + "']");
+            if (id === _HOME) {
+                el[1].parentElement.style.backgroundColor = '';
+            } else {
+                el[0].parentElement.style.backgroundColor = '';
+            }
+        }
+
+        window.addEventListener('hashchange', function (event) {
+
+            applyBackground(event.newURL);
+            removeBackground(event.oldURL);
+
+        });
     </script>
 </body>
 

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Texto</title>
+    <title>Text</title>
     <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
     <style>
         /* ... */
@@ -11,10 +11,68 @@
             margin: 0;
         }
 
+        html {
+            font-size: 28px;
+        }
+
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
+        }
+
+        div {
+            font-size: 50px;
+        }
+
+        p {
+            /** Default values */
+            font-size: 1em;
+            font-size: 100%;
+            font-size: 16px;
+            font-size: 12pt;
+
+            /* Absolutes units */
+            font-size: 100px; /** Pixel is relative */
+            font-size: 72pt; /** Points */
+            font-size: 1in; /** Inches */
+
+            /** Relatives Units */
+            font-size: 2.2em; /** Get from parent div */
+            font-size: 2.2rem; /** Get from the html */
+            font-size: 10vh;
+            font-size: 10vw;
+
+            font-family: monospace;
+            font-family: Georgia, serif;
+            font-family: Verdana, sans-serif;
+            font-family: 'Indie Flower', cursive;
+
+            font-weight: 100; /** Default */
+            font-style: italic;
+            text-transform: uppercase;
+            /* text-decoration: overline underline line-through; */
+            word-spacing: 10px;
+            letter-spacing: 20px;
+            line-height: 2.5em;
+            text-align: center;
+        }
+
+        .button {
+            font-size: 28px;
+            text-decoration: none;
+            padding: 10px 30px;
+            border-radius: 25px;
+        }
+
+        .highlight {
+            color: white;
+            background-color: tomato;
+            box-shadow: 2px 2px 1px 1px #000;
+        }
+
+        .highlight:active {
+            box-shadow: none;
         }
     </style>
 </head>
@@ -22,11 +80,11 @@
 <body>
     <div>
         <p>
-            Que texto
-            <br>legal!!!
+            Oh look this text
+            <br>Nice!!!
         </p>
     </div>
-    <a href="http://google.com" class="botao destaque">Google</a>
+    <a href="http://google.com" class="button highlight">Google</a>
 </body>
 
 </html>

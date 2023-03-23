@@ -7,14 +7,60 @@
     <link rel="stylesheet" href="css/tag.css">
     <style>
         /* ... */
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            grid-area: header;
+        }
+
+        nav {
+            grid-area: nav;
+        }
+
+        main {
+            grid-area: main;
+        }
+
+        footer {
+            grid-area: footer;
+        }
+
+        body {
+            display: grid;
+            min-height: 100vh;
+            grid-template-columns: 300px 1fr;
+            grid-template-rows: 100px 1fr 100px;
+            grid-template-areas:
+                'header header'
+                'nav main'
+                'footer footer';
+        }
+
+        @media(max-width: 700px) {
+            body {
+                grid-template-columns: 1fr;
+                grid-template-rows: 80px 1fr 100px;
+                grid-template-areas:
+                    'nav'
+                    'main'
+                    'footer';
+            }
+
+            header {
+                display: none;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <main class="tag">CONTEÚDO</main>
-    <header class="tag">CABEÇALHO</header>
-    <footer class="tag">RODAPÉ</footer>
-    <nav class="tag">NAVEGAÇÃO</nav>
+    <main class="tag">Content</main>
+    <header class="tag">Header</header>
+    <footer class="tag">Footer</footer>
+    <nav class="tag">Nav</nav>
 
     <script src="js/tag.js"></script>
 </body>

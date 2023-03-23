@@ -6,7 +6,55 @@
     <title>CSS Selectors</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        /* CSS */
+        /* .tag {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        /* #approved {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        /* #nested > div {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        /* #nested section {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        /* p + ul {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        /* p ~ ol {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        /* [fair] {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        /* [fair~=office] {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        /* [fair*=ok] {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        /* span:nth-child(2) {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        /* section >:nth-child(odd), ul {
+            color: #ff0;
+            background-color: #f77;
+        } */
+        /* section > span:nth-of-type(2) {
+            color: #ff0;
+            background-color: #f77;
+        } */
     </style>
 </head>
 
@@ -14,20 +62,20 @@
     <div class='tag'>
         <div class='tag'>
             <p class='tag'>1</p>
-            <ul class='tag' feira='casa'>
-                <li>Arroz</li>
-                <li>Feijão</li>
+            <ul class='tag' fair='house ok'>
+                <li>Rice</li>
+                <li>Beans</li>
             </ul>
-            <ul class='tag' feira='escritorio empresa'>
-                <li>Café</li>
-                <li>Água</li>
+            <ul class='tag' fair='office company ok'>
+                <li>Coffee</li>
+                <li>Water</li>
             </ul>
-            <ol id='aprovados' class='tag'>
-                <li>Maria</li>
-                <li>Pedro</li>
-                <li>Ana</li>
+            <ol id='approved' class='tag'>
+                <li>Marie</li>
+                <li>Peter</li>
+                <li>Anna</li>
             </ol>
-            <div id='aninhado' class='tag'>
+            <div id='nested' class='tag'>
                 <div class="tag">
                     <section class='tag'>
                         <span class='tag'>1</span>

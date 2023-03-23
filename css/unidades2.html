@@ -2,14 +2,31 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Unidades #02</title>
+    <title>Units #02</title>
     <style>
         /* ... */
+        .out {
+            position: relative;
+            background-color: orange;
+            width: 400px;
+            height: 400px;
+            padding: 50px;
+        }
+
+        .in {
+            background-color: mediumvioletred;
+            height: 100px;
+            width: 100%;
+            position: static; /** Only content */
+            position: relative; /** Only content */
+            position: absolute; /** Content plus padding */
+            position: fixed;  /** Get viewport size */
+        }
     </style>
 </head>
 <body>
-    <div class="fora">
-        <div class="dentro"></div>
+    <div class="out">
+        <div class="in"></div>
     </div>
 </body>
 </html>

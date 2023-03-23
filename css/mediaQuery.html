@@ -12,11 +12,27 @@
             border: solid 5px;
             display: none;
         }
+
+        @media (max-width: 600px) {
+            .too-small {
+                display: block;
+            }
+        }
+        @media (max-width: 1000px), (orientation: portrait) {
+            .small-portrait {
+                display: block;
+            }
+        }
+        @media (min-width: 500px) and (max-width: 1500px) {
+            .interval {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="muito-pequeno">Muito Pequeno</div>
-    <div class="pequeno-retrato">Pequeno ou Retrato</div>
-    <div class="intervalo">Intervalo</div>
+    <div class="too-small">Too small</div>
+    <div class="small-portrait">Small or Portrait</div>
+    <div class="interval">Interval</div>
 </body>
 </html>
