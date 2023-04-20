@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Working with events #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <!-- onclick="navIn5s(event)"-->
+        <a wait-a-moment href="https://google.com.br">
+            Google</a>
+    </div>
+    <script>
+        function navIn5s(e) {
+            e.preventDefault()
+            console.log("Exiting in 5s");
+            setTimeout(() => {
+                const link = e.target;
+                window.location.href = link.href;
+            },5000)
+        }
+
+        // const a = document.querySelector('a')
+        // a.onclick = navIn5s
+
+        const a = document.querySelector('[wait-a-moment]');
+        a.onclick = navIn5s;
+    </script>
+</body>

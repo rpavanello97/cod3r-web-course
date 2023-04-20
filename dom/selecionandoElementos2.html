@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecting Elements #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>
+        const addingClass = selector =>
+            document.querySelectorAll(selector).forEach(e => e.classList.add('destaque'))
+        const removingClass = selector =>
+            document.querySelectorAll(selector).forEach(e => e.classList.remove('destaque'))
+
+        addingClass('#primeiro');
+        addingClass('div');
+
+        removingClass('*');
+        addingClass('.terceiro.ultimo');
+        
+        removingClass('*');
+        addingClass('.terceiro.ultimo');
+        
+        removingClass('*');
+        addingClass('.terceiro.ultimo');
+
+        removingClass('*');
+        addingClass(':not(#primeiro)');
+        
+        removingClass('*');
+        addingClass(':nth-child(1)');
+        
+        removingClass('*');
+        addingClass('div:nth-of-type(1)');
+        
+        removingClass('*');
+        addingClass('[wb-attrib]');
+    </script>
+</body>
+
+</html>

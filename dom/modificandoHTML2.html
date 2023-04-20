@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <p>Initial text</p>
+    </div>
+    <script>
+        const div = document.querySelector('div')
+        div.innerHTML = 'Texto Alterado'
+        // div.outerHTML = 'Texto Alterado'
+        div.insertAdjacentHTML('beforebegin', '<p>Before begin')
+        div.insertAdjacentHTML('afterbegin', '<p>After begin')
+        div.insertAdjacentHTML('beforeend', '<p>Before end')
+        div.insertAdjacentHTML('afterend', '<p>After end')
+
+        /** Only text (no tags) */
+        console.log(div.innerText)
+    </script>
+</body>
+
+</html>
